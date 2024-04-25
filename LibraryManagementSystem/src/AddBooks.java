@@ -83,7 +83,7 @@ public class AddBooks extends javax.swing.JFrame {
             }
         });
 
-        cancelButton.setBackground(new java.awt.Color(255, 51, 51));
+        cancelButton.setBackground(new java.awt.Color(51, 153, 255));
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cancelButton.setText("CANCEL");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {

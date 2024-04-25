@@ -16,6 +16,7 @@ public class BooksAvailable extends javax.swing.JFrame {
      */
     public BooksAvailable() {
         initComponents();
+        setDefaultCloseOperation(BooksAvailable.DISPOSE_ON_CLOSE);
     }
 
     /**

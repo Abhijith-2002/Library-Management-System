@@ -22,6 +22,7 @@ public class ReaderDetails extends javax.swing.JFrame {
      */
     public ReaderDetails() {
         initComponents();
+        setDefaultCloseOperation(ReaderDetails.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -58,6 +59,7 @@ public class ReaderDetails extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        fetchButton.setBackground(new java.awt.Color(51, 153, 255));
         fetchButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         fetchButton.setText("FETCH");
         fetchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +68,7 @@ public class ReaderDetails extends javax.swing.JFrame {
             }
         });
 
+        backButton.setBackground(new java.awt.Color(51, 153, 255));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {

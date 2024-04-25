@@ -22,6 +22,7 @@ public class SearchBooks extends javax.swing.JFrame {
      */
     public SearchBooks() {
         initComponents();
+        setDefaultCloseOperation(SearchBooks.DISPOSE_ON_CLOSE);
     }
 
     /**

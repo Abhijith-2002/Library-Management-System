@@ -22,6 +22,7 @@ public class IssuedBooks extends javax.swing.JFrame {
      */
     public IssuedBooks() {
         initComponents();
+        setDefaultCloseOperation(IssuedBooks.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -62,13 +63,13 @@ public class IssuedBooks extends javax.swing.JFrame {
 
         ibTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "READER ID", "BOOK ID"
+                "READER ID", "BOOK ID", "RENT DATE", "DUE DATE"
             }
         ));
         jScrollPane2.setViewportView(ibTable);
@@ -96,11 +97,11 @@ public class IssuedBooks extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(113, 113, 113)
                 .addComponent(fetchButton)
-                .addGap(83, 83, 83)
+                .addGap(93, 93, 93)
                 .addComponent(backButton)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +139,9 @@ public class IssuedBooks extends javax.swing.JFrame {
             while(rs.next()) {
                 String readerid = rs.getString("reader_id");
                 String bookid = rs.getString("book_id");
-                model.addRow(new Object[] {readerid,bookid});
+                String rentDate = rs.getString("rented_date");
+                String dueDate = rs.getString("due_date");
+                model.addRow(new Object[] {readerid,bookid,rentDate,dueDate});
             }
             rs.close();
             stm.close();

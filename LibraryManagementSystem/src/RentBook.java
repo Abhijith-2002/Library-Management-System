@@ -22,6 +22,7 @@ public class RentBook extends javax.swing.JFrame {
      */
     public RentBook() {
         initComponents();
+        setDefaultCloseOperation(RentBook.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -62,7 +63,7 @@ public class RentBook extends javax.swing.JFrame {
             }
         });
 
-        cancelButton.setBackground(new java.awt.Color(255, 153, 0));
+        cancelButton.setBackground(new java.awt.Color(51, 204, 255));
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cancelButton.setText("CANCEL");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +138,7 @@ public class RentBook extends javax.swing.JFrame {
         String pwd = "password";
         String readerid = readerField.getText();
         String bookid = bookField.getText();
-        String query = "insert into rented_books values ('"+readerid+"','"+bookid+"');";
+        String query = "insert into rented_books values ('"+readerid+"','"+bookid+"',current_date,date_add(current_date,interval 7 day));";
         String check = "select copies from books where book_id = '"+bookid+"';";
         try {
             Connection conn = DriverManager.getConnection(url,user,pwd);

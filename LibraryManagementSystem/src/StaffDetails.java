@@ -22,6 +22,7 @@ public class StaffDetails extends javax.swing.JFrame {
      */
     public StaffDetails() {
         initComponents();
+        setDefaultCloseOperation(StaffDetails.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -67,7 +68,7 @@ public class StaffDetails extends javax.swing.JFrame {
             }
         });
 
-        backButton.setBackground(new java.awt.Color(255, 102, 0));
+        backButton.setBackground(new java.awt.Color(0, 153, 255));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {

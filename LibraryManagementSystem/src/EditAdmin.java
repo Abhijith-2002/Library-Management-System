@@ -20,6 +20,7 @@ public class EditAdmin extends javax.swing.JFrame {
      */
     public EditAdmin() {
         initComponents();
+        setDefaultCloseOperation(EditAdmin.DISPOSE_ON_CLOSE);
     }
 
     /**

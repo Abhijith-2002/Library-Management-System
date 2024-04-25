@@ -18,6 +18,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
+        setDefaultCloseOperation(LoginPage.DISPOSE_ON_CLOSE);
     }
 
     /**
