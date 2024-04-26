@@ -151,7 +151,7 @@ public class SearchBooks extends javax.swing.JFrame {
             Connection conn = DriverManager.getConnection(url,user,pwd);
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(query);
-            while(rs.next()) {
+            if(rs.next()) {
                 String bookid = rs.getString("book_id");
                 String category = rs.getString("category");
                 String name = rs.getString("name");
@@ -159,11 +159,14 @@ public class SearchBooks extends javax.swing.JFrame {
                 int copies = rs.getInt("copies");
                 model.addRow(new Object[] {bookid,category,name,author,copies});
             }
+            else {
+                JOptionPane.showMessageDialog(this, "Book not found !");
+            }
             rs.close();
             stm.close();
         }
         catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Book not found !");
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
         
     }//GEN-LAST:event_searchButtonActionPerformed
