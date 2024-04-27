@@ -105,13 +105,21 @@ public class RemoveBooks extends javax.swing.JFrame {
         String user = "root";
         String pwd = "password";
         String input = inputField.getText();
-        String query = "delete from books where book_id = '"+input+"' or name = '"+input+"';";
+        String check = "select copies from books where book_id = '"+input+"' or name = '"+input+"';";
         try {
             Connection conn = DriverManager.getConnection(url,user,pwd);
             Statement stm = conn.createStatement();
-            int rows = stm.executeUpdate(query);
-            if(rows>0) {
-                JOptionPane.showMessageDialog(this, "Book removed successfully !");
+            ResultSet rs = stm.executeQuery(check);
+            if(rs.next()) {
+                int copies = rs.getInt("copies");
+                if(copies>0) {
+                    stm.executeUpdate("update books set copies = copies - 1 where book_id = '"+input+"' or name = '"+input+"';");
+                    JOptionPane.showMessageDialog(this, "Book removed successfully !");
+                }
+                else {
+                    stm.executeUpdate("delete from books where book_id = '"+input+"' or name = '"+input+"';");
+                    JOptionPane.showMessageDialog(this, "Book removed successfully !");
+                }
             }
             else {
                 JOptionPane.showMessageDialog(this, "Invalid Book ID/Name !");
